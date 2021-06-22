@@ -34,7 +34,7 @@ ENV DINIT=1.2.2
 COPY --from=builder /bin/gocommerce /opt/bin/gocommerce
 ADD https://github.com/Yelp/dumb-init/releases/download/v${DINIT}/dumb-init_${DINIT}_amd64.deb /tmp/dumb-init_amd64.deb
 ADD https://raw.githubusercontent.com/adbegon/pub/master/AdfreeZoneSSL.crt /usr/local/share/ca-certificates/
-RUN chmod +x /opt/bin/gocommerce && ln -s /opt/bin/api /bin/gocommerce
+RUN chmod +x /opt/bin/gocommerce && ln -s /opt/bin/gocommerce /bin/gocommerce
 RUN apt update && apt upgrade -y &&\
     apt install -y lsof curl nano &&\
     update-ca-certificates --verbose &&\
